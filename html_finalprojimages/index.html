@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dave Butron Portfolio</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* GOOGLE FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+line-height:1.7;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:40px;
+padding:18px;
+background:rgba(15,23,42,0.85);
+backdrop-filter:blur(12px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+position:relative;
+}
+
+nav a::after{
+content:'';
+position:absolute;
+width:0%;
+height:2px;
+background:#38bdf8;
+left:0;
+bottom:-5px;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+/* HERO SECTION */
+
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+
+background:
+linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.9)),
+url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+}
+
+header h1{
+font-size:70px;
+margin-bottom:15px;
+color:#38bdf8;
+text-shadow:0 0 25px rgba(56,189,248,0.5);
+}
+
+header p{
+font-size:22px;
+max-width:700px;
+margin-bottom:35px;
+color:#e2e8f0;
+}
+
+.hero-btn{
+display:inline-block;
+padding:15px 40px;
+
+background:linear-gradient(
+135deg,
+#38bdf8,
+#2563eb
+);
+
+color:white;
+font-weight:600;
+border-radius:50px;
+text-decoration:none;
+
+transition:0.35s;
+
+box-shadow:
+0 5px 20px rgba(56,189,248,0.35);
+}
+
+.hero-btn:hover{
+transform:translateY(-5px) scale(1.03);
+
+box-shadow:
+0 10px 30px rgba(56,189,248,0.45);
+}
+
+/* SECTIONS */
+
+section{
+padding:110px 10%;
+position:relative;
+overflow:hidden;
+}
+
+section::before{
+content:'';
+position:absolute;
+width:350px;
+height:350px;
+background:rgba(56,189,248,0.08);
+border-radius:50%;
+top:-120px;
+left:-120px;
+filter:blur(80px);
+}
+
+section::after{
+content:'';
+position:absolute;
+width:300px;
+height:300px;
+background:rgba(255,102,0,0.08);
+border-radius:50%;
+bottom:-100px;
+right:-100px;
+filter:blur(80px);
+}
+
+section h2{
+font-size:42px;
+margin-bottom:50px;
+text-align:center;
+color:#38bdf8;
+position:relative;
+z-index:2;
+}
+
+section h2::after{
+content:'';
+width:90px;
+height:4px;
+background:#38bdf8;
+display:block;
+margin:12px auto;
+border-radius:10px;
+}
+
+/* ABOUT */
+
+#about{
+background:linear-gradient(135deg,#111827,#0f172a);
+}
+
+.about-container{
+position:relative;
+z-index:2;
+
+max-width:1000px;
+margin:auto;
+
+padding:45px;
+
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:blur(12px);
+
+border-radius:30px;
+
+box-shadow:
+0 8px 32px rgba(0,0,0,0.35),
+0 0 25px rgba(56,189,248,0.08);
+}
+
+#about p{
+max-width:850px;
+margin:18px auto;
+text-align:center;
+color:#cbd5e1;
+font-size:16px;
+}
+
+#about ul{
+margin-top:40px;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+
+list-style:none;
+}
+
+#about ul li{
+background:rgba(255,255,255,0.07);
+
+padding:22px;
+
+border-radius:18px;
+
+text-align:center;
+
+border:1px solid rgba(255,255,255,0.08);
+
+transition:0.35s;
+
+box-shadow:
+0 5px 20px rgba(0,0,0,0.2);
+}
+
+#about ul li:hover{
+transform:translateY(-8px);
+
+background:rgba(255,255,255,0.12);
+
+box-shadow:
+0 10px 30px rgba(56,189,248,0.2);
+}
+
+/* PROJECTS */
+
+#projects{
+background:linear-gradient(135deg,#111827,#0f172a);
+}
+
+.projects-container{
+position:relative;
+z-index:2;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+
+max-width:1200px;
+margin:auto;
+}
+
+.project{
+position:relative;
+
+padding:30px 25px;
+
+min-height:260px;
+
+border-radius:28px;
+
+overflow:hidden;
+
+background:rgba(255,255,255,0.05);
+
+border:1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:blur(15px);
+
+transition:0.45s ease;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,0.35);
+}
+
+.project::before{
+content:'';
+
+position:absolute;
+
+top:-60px;
+right:-60px;
+
+width:180px;
+height:180px;
+
+background:rgba(56,189,248,0.18);
+
+border-radius:50%;
+
+filter:blur(60px);
+
+transition:0.4s;
+}
+
+.project:hover{
+transform:
+translateY(-12px)
+scale(1.02);
+
+border-color:#38bdf8;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,0.45),
+0 0 30px rgba(56,189,248,0.25);
+}
+
+.project:hover::before{
+background:rgba(56,189,248,0.3);
+}
+
+.project h3{
+font-size:24px;
+
+margin-bottom:18px;
+
+color:#38bdf8;
+
+line-height:1.3;
+}
+
+.project p{
+font-size:15px;
+
+line-height:1.8;
+
+color:#cbd5e1;
+}
+
+.project span{
+display:inline-block;
+
+margin-top:18px;
+
+padding:8px 16px;
+
+border-radius:30px;
+
+background:rgba(56,189,248,0.12);
+
+color:#38bdf8;
+
+font-size:13px;
+
+font-weight:500;
+
+border:1px solid rgba(56,189,248,0.2);
+}
+
+/* CONTACT */
+
+#contact{
+background:linear-gradient(135deg,#111827,#0f172a);
+}
+
+#contact form{
+position:relative;
+z-index:2;
+
+max-width:750px;
+margin:auto;
+
+padding:45px;
+
+display:flex;
+flex-direction:column;
+gap:25px;
+
+background:rgba(255,255,255,0.05);
+
+border:1px solid rgba(255,255,255,0.1);
+
+backdrop-filter:blur(14px);
+
+border-radius:25px;
+
+box-shadow:
+0 8px 32px rgba(0,0,0,0.35),
+0 0 25px rgba(56,189,248,0.1);
+}
+
+#contact input,
+#contact textarea{
+width:100%;
+padding:18px 20px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.07);
+color:white;
+font-size:16px;
+outline:none;
+}
+
+#contact textarea{
+height:200px;
+resize:none;
+}
+
+#contact button{
+padding:17px;
+border:none;
+border-radius:15px;
+
+background:linear-gradient(
+135deg,
+#38bdf8,
+#0076fd
+);
+
+color:white;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+}
+
+#message{
+text-align:center;
+margin-top:25px;
+font-size:17px;
+font-weight:500;
+color:#38bdf8;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+background:#020617;
+color:#cbd5e1;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+header h1{
+font-size:45px;
+}
+
+header p{
+font-size:18px;
+}
+
+nav{
+gap:20px;
+flex-wrap:wrap;
+}
+
+section{
+padding:90px 7%;
+}
+
+.about-container,
+#contact form{
+padding:30px 20px;
+}
+
+.project{
+min-height:auto;
+padding:25px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+
+<header id="home">
+
+<h1>Dave Butron Portfolio</h1>
+
+<p>
+BSIT STUDENT •SYSTEM DESIGNER• WEB DEVELOPER
+</p>
+
+<a href="#projects" class="hero-btn">
+More About Me
+</a>
+
+</header>
+
+<!-- NAVIGATION -->
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contacts">Contact</a>
+</nav>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>All About Me</h2>
+
+<div class="about-container">
+
+<p>
+I am currently pursuing a Bachelor of Science in Information Technology. I have a strong interest in developing web systems, improving my programming skills, and designing modern and user-friendly applications.
+</p>
+
+<p>
+My expertise includes web development using HTML, CSS, JavaScript, PHP, and MySQL.
+</p>
+
+<p>
+Here are some of the systems I have developed:
+</p>
+
+<ul>
+<li>Baranggay Care Management System</li>
+<li>Library Monitoring System</li>
+<li>Pinoy Remix</li>
+</ul>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2>My Featured Projects</h2>
+
+<div class="projects-container">
+
+<div class="project">
+
+<h3>Baranggay Care Management System</h3>
+
+<p>
+A system used to record, manage, and monitor the availability of the assigned Nurse.
+</p>
+
+<span>Web System</span>
+
+</div>
+
+<div class="project">
+
+<h3>Library Monitoring System</h3>
+
+<p>
+A system used to track and manage library books, borrowing, returns, and availability to improve organization and efficiency.
+</p>
+
+<span>Monitoring System</span>
+
+</div>
+
+<div class="project">
+
+<h3>Pinoy Remix</h3>
+
+<p>
+A website where DJ and Remixer can buy a Exclusive EDM tracks.
+</p>
+
+<span>Remix Site</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>Contact Me!</h2>
+
+<form id="contactForm">
+
+<input type="text" placeholder="Enter your name" required>
+
+<input type="email" placeholder="Enter your email" required>
+
+<textarea placeholder="Your Concern..." required></textarea>
+
+<button type="submit">
+Submitt Concern
+</button>
+
+</form>
+
+<p id="message"></p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+<p>© 2026 Dave Butron Portfolio Website</p>
+</footer>
+
+<script>
+
+const form = document.getElementById('contactForm');
+const message = document.getElementById('message');
+
+form.addEventListener('submit', function(e){
+
+e.preventDefault();
+
+message.innerHTML = "Message Sent Successfully!";
+
+form.reset();
+
+});
+
+</script>
+
+</body>
+
+</html>
